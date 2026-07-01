@@ -122,12 +122,12 @@ jobs:
         shell: python
         run: |
           import re
-          path = 'libs/hbb_common/src/config.rs'
-          with open(path, 'r', encoding='utf-8') as f:
+          path = "libs/hbb_common/src/config.rs"
+          with open(path, "r", encoding="utf-8") as f:
               data = f.read()
-          data = re.sub(r'pub const RENDEZVOUS_SERVERS:.*?&\[\];', 'pub const RENDEZVOUS_SERVERS: &'static [&'static str] = &["161.35.111.219"];', data)
-          data = re.sub(r'pub const RS_PUB_KEY:.*?="";', 'pub const RS_PUB_KEY: &'static str = "ItJHrixP40knL6L53jZBxh5uxx9w90brIn4byXJbzU0=";', data)
-          with open(path, 'w', encoding='utf-8') as f:
+          data = re.sub(r"pub const RENDEZVOUS_SERVERS:.*?&\[\];", "pub const RENDEZVOUS_SERVERS: &'static [&'static str] = &[\"161.35.111.219\"];", data)
+          data = re.sub(r"pub const RS_PUB_KEY:.*?=\"\";", "pub const RS_PUB_KEY: &'static str = \"ItJHrixP40knL6L53jZBxh5uxx9w90brIn4byXJbzU0=\";", data)
+          with open(path, "w", encoding="utf-8") as f:
               f.write(data)
 
       - name: Restore bridge files
@@ -419,18 +419,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Inyectar Servidor RustDesk
-        shell: python
-        run: |
-          import re
-          path = 'libs/hbb_common/src/config.rs'
-          with open(path, 'r', encoding='utf-8') as f:
-              data = f.read()
-          data = re.sub(r'pub const RENDEZVOUS_SERVERS:.*?&\[\];', 'pub const RENDEZVOUS_SERVERS: &'static [&'static str] = &["161.35.111.219"];', data)
-          data = re.sub(r'pub const RS_PUB_KEY:.*?="";', 'pub const RS_PUB_KEY: &'static str = "ItJHrixP40knL6L53jZBxh5uxx9w90brIn4byXJbzU0=";', data)
-          with open(path, 'w', encoding='utf-8') as f:
-              f.write(data)
-
       - name: Install LLVM and Clang
         uses: rustdesk-org/install-llvm-action-32bit@6aa7d9ad3df84dff01cd4596dd0fc880a7f47fce # no release tag; commit 2026-05-26
         with:
@@ -638,18 +626,6 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-
-      - name: Inyectar Servidor RustDesk
-        shell: python
-        run: |
-          import re
-          path = 'libs/hbb_common/src/config.rs'
-          with open(path, 'r', encoding='utf-8') as f:
-              data = f.read()
-          data = re.sub(r'pub const RENDEZVOUS_SERVERS:.*?&\[\];', 'pub const RENDEZVOUS_SERVERS: &'static [&'static str] = &["161.35.111.219"];', data)
-          data = re.sub(r'pub const RS_PUB_KEY:.*?="";', 'pub const RS_PUB_KEY: &'static str = "ItJHrixP40knL6L53jZBxh5uxx9w90brIn4byXJbzU0=";', data)
-          with open(path, 'w', encoding='utf-8') as f:
-              f.write(data)
 
       - name: Install flutter
         uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
@@ -923,18 +899,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Inyectar Servidor RustDesk
-        shell: python
-        run: |
-          import re
-          path = 'libs/hbb_common/src/config.rs'
-          with open(path, 'r', encoding='utf-8') as f:
-              data = f.read()
-          data = re.sub(r'pub const RENDEZVOUS_SERVERS:.*?&\[\];', 'pub const RENDEZVOUS_SERVERS: &'static [&'static str] = &["161.35.111.219"];', data)
-          data = re.sub(r'pub const RS_PUB_KEY:.*?="";', 'pub const RS_PUB_KEY: &'static str = "ItJHrixP40knL6L53jZBxh5uxx9w90brIn4byXJbzU0=";', data)
-          with open(path, 'w', encoding='utf-8') as f:
-              f.write(data)
-
       - name: Install flutter
         uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
         with:
@@ -1099,18 +1063,6 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-
-      - name: Inyectar Servidor RustDesk
-        shell: python
-        run: |
-          import re
-          path = 'libs/hbb_common/src/config.rs'
-          with open(path, 'r', encoding='utf-8') as f:
-              data = f.read()
-          data = re.sub(r'pub const RENDEZVOUS_SERVERS:.*?&\[\];', 'pub const RENDEZVOUS_SERVERS: &'static [&'static str] = &["161.35.111.219"];', data)
-          data = re.sub(r'pub const RS_PUB_KEY:.*?="";', 'pub const RS_PUB_KEY: &'static str = "ItJHrixP40knL6L53jZBxh5uxx9w90brIn4byXJbzU0=";', data)
-          with open(path, 'w', encoding='utf-8') as f:
-              f.write(data)
 
       - name: Set Swap Space
         if: ${{ matrix.job.arch == 'x86_64' }}
